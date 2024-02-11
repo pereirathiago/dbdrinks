@@ -1,0 +1,13 @@
+node_modules
+build
+npm-debug.log
+.env
+.DS_Store
+
+tmp/avatar/
+tmp/carrossel/
+tmp/produtos/
+
+dockerfile
+docker-compose.yml
+ormconfig.json
