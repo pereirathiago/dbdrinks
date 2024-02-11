@@ -14,10 +14,6 @@ import { usersProfilesRoutes } from './security/users-profiles-routes'
 import { navigationsRoutes } from './security/navigations-routes'
 import { configsRoutes } from './security/configs-routes'
 import { filtersRoutes } from './security/filters-routes'
-import { paisesRoutes } from './comum/paises-routes'
-import { estadosRoutes } from './comum/estados-routes'
-import { cidadesRoutes } from './comum/cidades-routes'
-import { cepsRoutes } from './comum/ceps-routes'
 const router = Router()
 
 router.use(authenticateRoutes)
@@ -35,9 +31,5 @@ router.use('/users-profiles', usersProfilesRoutes)
 router.use('/navigations', navigationsRoutes)
 router.use('/configs', configsRoutes)
 router.use('/filters', filtersRoutes)
-router.use('/paises', paisesRoutes)
-router.use('/estados', estadosRoutes)
-router.use('/cidades', cidadesRoutes)
-router.use('/ceps', cepsRoutes)
 
 export { router }
