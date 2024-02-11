@@ -118,14 +118,8 @@ async function create() {
       ('2814da68-5179-4152-bd7e-22361b844b88', '5aefe650-10a3-4e0d-a018-4704975d84b6', '001006', 'Perfis', '/profiles', 'list', 'security-profiles', 'now()', 'now()'), 
       ('b65f0fa5-27f5-498d-ba50-7008516bfcb9', '5aefe650-10a3-4e0d-a018-4704975d84b6', '001007', 'Usuários x Perfis', '/users-profiles', 'list', 'security-users-profiles', 'now()', 'now()'), 
       ('0471bddc-de4c-42d1-a778-b67086796de1', '5aefe650-10a3-4e0d-a018-4704975d84b6', '001008', 'Navegação', '/navigations', 'list', 'security-navigations', 'now()', 'now()'),
-      ('bb3b5dac-c6e8-48b7-9d5b-8ebc8084d360', '5aefe650-10a3-4e0d-a018-4704975d84b6', '001009', 'Termos de Uso Aceito', '/termo-uso-aceitos', 'list', 'security-termos-uso-aceito', 'now()', 'now()'),
-			
-      ('3b61540e-da84-4ad0-a452-4c4f25ceda93', '2232e46e-330e-49d1-99c0-b82592e8668e', '002', 'Tabelas', '', 'fa-solid fa-table-list', 'comum', 'now()', 'now()'),
-			('b626814d-e60b-4ed9-8db5-e1216b6348ba', '2232e46e-330e-49d1-99c0-b82592e8668e', '002001', 'Países', '/paises', 'public', 'comum-paises', 'now()', 'now()'),
-			('96095735-fd10-4962-a311-bd42aa8a7ad3', '2232e46e-330e-49d1-99c0-b82592e8668e', '002002', 'Estados', '/estados', 'public', 'comum-estados', 'now()', 'now()'),
-			('87490d1f-b09e-4ea1-bd84-8ac440c5b5c1', '2232e46e-330e-49d1-99c0-b82592e8668e', '002003', 'Cidades', '/cidades', 'apartment', 'comum-cidades', 'now()', 'now()'),
-			('dda5749f-c080-4b02-bc80-5a951ab96f2a', '2232e46e-330e-49d1-99c0-b82592e8668e', '002004', 'CEP', '/ceps', 'groups', 'comum-ceps', 'now()', 'now()')
-	`)
+      ('bb3b5dac-c6e8-48b7-9d5b-8ebc8084d360', '5aefe650-10a3-4e0d-a018-4704975d84b6', '001009', 'Termos de Uso Aceito', '/termo-uso-aceitos', 'list', 'security-termos-uso-aceito', 'now()', 'now()')
+			`)
 
 
   // profiles
@@ -164,12 +158,7 @@ async function create() {
       ('2814da68-5179-4152-bd7e-22361b844b88', '3c99decf-f975-4b16-b552-0747afd397a3', 'security-profiles', true, 'now()', 'now()'),
       ('b65f0fa5-27f5-498d-ba50-7008516bfcb9', '3c99decf-f975-4b16-b552-0747afd397a3', 'security-users-profiles', true, 'now()', 'now()'),
       ('0471bddc-de4c-42d1-a778-b67086796de1', '3c99decf-f975-4b16-b552-0747afd397a3', 'security-navigations', true, 'now()', 'now()'),
-      ('37d64d8b-33b2-430d-8f73-6522aee3857d', '3c99decf-f975-4b16-b552-0747afd397a3', 'security-termos-uso-aceito', true, 'now()', 'now()'),
-			('0bdce75b-8a00-4c69-9fbd-5c56c77fe9eb', '3c99decf-f975-4b16-b552-0747afd397a3', 'comum', true, 'now()', 'now()'),
-			('ca424fb6-3279-4b0a-ba37-bc9eb1bc1dbf', '3c99decf-f975-4b16-b552-0747afd397a3', 'comum-paises', true, 'now()', 'now()'),
-			('57e7c0d1-ab65-493e-b4d9-fee5f73c31de', '3c99decf-f975-4b16-b552-0747afd397a3', 'comum-estados', true, 'now()', 'now()'),
-			('e3a9cdff-70a8-489f-9493-12c485a394ec', '3c99decf-f975-4b16-b552-0747afd397a3', 'comum-cidades', true, 'now()', 'now()'),
-			('dd6f4331-7b1c-4ce0-8423-5136456285cc', '3c99decf-f975-4b16-b552-0747afd397a3', 'comum-ceps', true, 'now()', 'now()')`
+      ('37d64d8b-33b2-430d-8f73-6522aee3857d', '3c99decf-f975-4b16-b552-0747afd397a3', 'security-termos-uso-aceito', true, 'now()', 'now()')`
   )
 
 
