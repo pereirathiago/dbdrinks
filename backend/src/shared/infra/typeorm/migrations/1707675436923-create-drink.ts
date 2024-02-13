@@ -33,6 +33,11 @@ export class createDrink1707675436923 implements MigrationInterface {
                         isNullable: false,
                     },
                     {
+                        name: 'grupo_id',
+                        type: 'uuid',
+                        isNullable: false,
+                    },
+                    {
                         name: 'nome',
                         type: 'varchar',
                         isNullable: false,
@@ -83,6 +88,14 @@ export class createDrink1707675436923 implements MigrationInterface {
                         referencedTableName: 'categorias',
                         referencedColumnNames: ['id'],
                         columnNames: ['categoria_id'],
+                        onDelete: 'SET NULL',
+                        onUpdate: 'SET NULL'
+                    },
+                    {
+                        name: 'FKGrupoDrinkGrupoId',
+                        referencedTableName: 'grupos',
+                        referencedColumnNames: ['id'],
+                        columnNames: ['grupo_id'],
                         onDelete: 'SET NULL',
                         onUpdate: 'SET NULL'
                     }
