@@ -28,16 +28,10 @@ import { IConfigRepository } from '@modules/security/repositories/i-config-repos
 import { ConfigRepository } from '@modules/security/infra/typeorm/repositories/config-repository'
 import { IFilterRepository } from '@modules/security/repositories/i-filter-repository'
 import { FilterRepository } from '@modules/security/infra/typeorm/repositories/filter-repository'
-import { IPaisRepository } from '@modules/comum/repositories/i-pais-repository'
-import { PaisRepository } from '@modules/comum/infra/typeorm/repositories/pais-repository'
-import { IEstadoRepository } from '@modules/comum/repositories/i-estado-repository'
-import { EstadoRepository } from '@modules/comum/infra/typeorm/repositories/estado-repository'
-import { ICidadeRepository } from '@modules/comum/repositories/i-cidade-repository'
-import { CidadeRepository } from '@modules/comum/infra/typeorm/repositories/cidade-repository'
-import { ICepRepository } from '@modules/comum/repositories/i-cep-repository'
-import { CepRepository } from '@modules/comum/infra/typeorm/repositories/cep-repository'
 import { ITermoUsoRepository } from '@modules/security/repositories/i-termo-uso-repository'
 import { TermoUsoRepository } from '@modules/security/infra/typeorm/repositories/termo-uso-repository'
+import { ITipoRepository } from '@modules/drinks/repositories/i-tipo-repository'
+import { TipoRepository } from '@modules/drinks/infra/repositories/tipo-repository'
 
 container.registerSingleton<IUserRepository>('UserRepository', UserRepository)
 container.registerSingleton<IUserSecurityRepository>('UserSecurityRepository', UserSecurityRepository)
@@ -53,7 +47,4 @@ container.registerSingleton<IUserProfileRepository>('UserProfileRepository', Use
 container.registerSingleton<IProfileOptionRepository>('ProfileOptionRepository', ProfileOptionRepository)
 container.registerSingleton<IConfigRepository>('ConfigRepository', ConfigRepository)
 container.registerSingleton<IFilterRepository>('FilterRepository', FilterRepository)
-container.registerSingleton<IPaisRepository>('PaisRepository', PaisRepository)
-container.registerSingleton<IEstadoRepository>('EstadoRepository', EstadoRepository)
-container.registerSingleton<ICidadeRepository>('CidadeRepository', CidadeRepository)
-container.registerSingleton<ICepRepository>('CepRepository', CepRepository)
+container.registerSingleton<ITipoRepository>('TipoRepository', TipoRepository)

@@ -1,8 +1,9 @@
 import { HttpResponse } from "@shared/helpers";
+import { ITipoDTO } from "../dtos/i-tipo-dto";
 
 interface ITipoRepository {
   // create
-  create(data: ITipoRepository): Promise<HttpResponse>
+  create(data: ITipoDTO): Promise<HttpResponse>
 
   // list
   list(
@@ -26,7 +27,7 @@ interface ITipoRepository {
   get(id: string): Promise<HttpResponse>
 
   // update
-  update(data: ITipoRepository): Promise<HttpResponse>
+  update(data: ITipoDTO): Promise<HttpResponse>
 
   // delete
   delete(id: string): Promise<HttpResponse>

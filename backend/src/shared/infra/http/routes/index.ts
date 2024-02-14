@@ -14,6 +14,7 @@ import { usersProfilesRoutes } from './security/users-profiles-routes'
 import { navigationsRoutes } from './security/navigations-routes'
 import { configsRoutes } from './security/configs-routes'
 import { filtersRoutes } from './security/filters-routes'
+import { tipoRoutes } from './drinks/tipo-repository'
 const router = Router()
 
 router.use(authenticateRoutes)
@@ -31,5 +32,6 @@ router.use('/users-profiles', usersProfilesRoutes)
 router.use('/navigations', navigationsRoutes)
 router.use('/configs', configsRoutes)
 router.use('/filters', filtersRoutes)
+router.use('/tipo', tipoRoutes)
 
 export { router }
