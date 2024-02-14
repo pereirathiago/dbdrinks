@@ -1,8 +1,9 @@
 import { ITipoRepository } from "@modules/drinks/repositories/i-tipo-repository";
-import { HttpResponse, ok, serverError } from "@shared/helpers";
+import { HttpResponse, noContent, notFound, ok, serverError } from "@shared/helpers";
 import { Brackets, Repository, getRepository } from "typeorm";
 import { Tipo } from "../entities/tipo";
 import { ITipoDTO } from "@modules/drinks/dtos/i-tipo-dto";
+import { AppError } from "@shared/errors/app-error";
 
 class TipoRepository implements ITipoRepository {
   private repository: Repository<Tipo>
@@ -95,44 +96,151 @@ class TipoRepository implements ITipoRepository {
 
 
   // select
-  select(filter: string): Promise<HttpResponse> {
-    throw new Error("Method not implemented.");
+  async select(filter: string): Promise<HttpResponse> {
+    try {
+      const tipo = await this.repository.createQueryBuilder('tip')
+        .select([
+          'tip.id as "value"',
+          'tip.nome as "label"',
+        ])
+        .where('tip.nome ilike :filter', { filter: `${filter}%` })
+        .addOrderBy('tip.nome')
+        .getRawMany()
+
+      return ok(tipo)
+    } catch (err) {
+      return serverError(err)
+    }
   }
 
 
   // id select
-  idSelect(id: string): Promise<HttpResponse> {
-    throw new Error("Method not implemented.");
+  async idSelect(id: string): Promise<HttpResponse> {
+    try {
+      const tipos = await this.repository.createQueryBuilder('tip')
+        .select([
+          'tip.id as "value"',
+          'tip.nome as "label"',
+        ])
+        .where('tip.id = :id', { id: `${id}` })
+        .getRawOne()
+
+      return ok(tipos)
+    } catch (err) {
+      return serverError(err)
+    }
   }
 
 
   // count
-  count(search: string, filter: string): Promise<HttpResponse> {
-    throw new Error("Method not implemented.");
+  async count(
+    search: string,
+    filter: string
+  ): Promise<HttpResponse> {
+    try {
+      let query = this.repository.createQueryBuilder('tip')
+        .select([
+          'tip.id as "id"',
+        ])
+
+      if (filter) {
+        query = query
+          .where(filter)
+      }
+
+      const tipo = await query
+        .andWhere(new Brackets(query => {
+          query.andWhere('CAST(tip.nome AS VARCHAR) ilike :search', { search: `%${search}%` })
+        }))
+        .getRawMany()
+
+      return ok({ count: tipo.length })
+    } catch (err) {
+      return serverError(err)
+    }
   }
 
 
   // get
-  get(id: string): Promise<HttpResponse> {
-    throw new Error("Method not implemented.");
+  async get(id: string): Promise<HttpResponse> {
+    try {
+      const tipos = await this.repository.createQueryBuilder('tip')
+        .select([
+          'tip.id as "id"',
+          'tip.nome as "nome"',
+          'tip.descricao as "descricao"',
+        ])
+        .where('tip.id = :id', { id })
+        .getRawOne()
+
+      if (typeof tipos === 'undefined') {
+        return noContent()
+      }
+
+      return ok(tipos)
+    } catch (err) {
+      return serverError(err)
+    }
   }
 
 
   // update
-  update(data: ITipoDTO): Promise<HttpResponse> {
-    throw new Error("Method not implemented.");
+  async update({
+    id,
+    nome,
+    descricao,
+  }: ITipoDTO): Promise<HttpResponse> {
+    const tipos = await this.repository.findOne(id)
+
+    if (!tipos) {
+      return notFound()
+    }
+
+    const newtipo = this.repository.create({
+      id,
+      nome,
+      descricao,
+    })
+
+    try {
+      await this.repository.save(newtipo)
+
+      return ok(newtipo)
+    } catch (err) {
+      return serverError(err)
+    }
   }
 
 
   // delete
-  delete(id: string): Promise<HttpResponse> {
-    throw new Error("Method not implemented.");
+  async delete(id: string): Promise<HttpResponse> {
+    try {
+      await this.repository.delete(id)
+
+      return noContent()
+    } catch (err) {
+      if (err.message.slice(0, 10) === 'null value') {
+        throw new AppError('not null constraint', 404)
+      }
+
+      return serverError(err)
+    }
   }
 
 
   // multi delete
-  multiDelete(ids: string[]): Promise<HttpResponse> {
-    throw new Error("Method not implemented.");
+  async multiDelete(ids: string[]): Promise<HttpResponse> {
+    try {
+      await this.repository.delete(ids)
+
+      return noContent()
+    } catch (err) {
+      if (err.message.slice(0, 10) === 'null value') {
+        throw new AppError('not null constraint', 404)
+      }
+
+      return serverError(err)
+    }
   }
 
 }

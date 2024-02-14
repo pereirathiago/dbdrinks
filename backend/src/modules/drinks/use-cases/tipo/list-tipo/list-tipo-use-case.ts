@@ -39,17 +39,16 @@ class ListTipoUseCase {
       filter
     )
 
-    // const countTipo = await this.tipoRepository.count(
-    //   search,
-    //   filter
-    // )
+    const countTipo = await this.tipoRepository.count(
+      search,
+      filter
+    )
 
     const numeroTipo = page * rowsPerPage
 
     const tipoResponse = {
       items: tipo.data,
-      // hasNext: numeroTipo < countTipo.data.count
-      hasNext: numeroTipo < 0
+      hasNext: numeroTipo < countTipo.data.count
     }
 
     return tipoResponse
