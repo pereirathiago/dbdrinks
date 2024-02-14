@@ -1,6 +1,6 @@
 import { ITipoRepository } from "@modules/drinks/repositories/i-tipo-repository";
 import { HttpResponse, ok, serverError } from "@shared/helpers";
-import { Repository, getRepository } from "typeorm";
+import { Brackets, Repository, getRepository } from "typeorm";
 import { Tipo } from "../entities/tipo";
 import { ITipoDTO } from "@modules/drinks/dtos/i-tipo-dto";
 
@@ -35,8 +35,62 @@ class TipoRepository implements ITipoRepository {
 
 
   // list
-  list(search: string, page: number, rowsPerPage: number, order: string, filter: string): Promise<HttpResponse> {
-    throw new Error("Method not implemented.");
+  async list(
+    search: string, 
+    page: number, 
+    rowsPerPage: number, 
+    order: string,
+    filter: string
+  ): Promise<HttpResponse> {
+    let columnName: string
+    let columnDirection: 'ASC' | 'DESC'
+
+    if ((typeof (order) === 'undefined') || (order === "")) {
+      columnName = 'nome'
+      columnDirection = 'ASC'
+    } else {
+      columnName = order.substring(0, 1) === '-' ? order.substring(1) : order
+      columnDirection = order.substring(0, 1) === '-' ? 'DESC' : 'ASC'
+    }
+
+    const referenceArray = [
+      "nome",
+    ]
+    const columnOrder = new Array<'ASC' | 'DESC'>(2).fill('ASC')
+
+    const index = referenceArray.indexOf(columnName)
+
+    columnOrder[index] = columnDirection
+
+    const offset = rowsPerPage * page
+
+    try {
+      let query = this.repository.createQueryBuilder('tip')
+        .select([
+          'tip.id as "id"',
+          'tip.nome as "nome"',
+          'tip.descricao as "descricao"',
+        ])
+
+      if (filter) {
+        query = query
+          .where(filter)
+      }
+
+      const tipos = await query
+        .andWhere(new Brackets(query => {
+          query.andWhere('CAST(tip.nome AS VARCHAR) ilike :search', { search: `%${search}%` })
+        }))
+        .addOrderBy('tip.nome', columnOrder[0])
+        .offset(offset)
+        .limit(rowsPerPage)
+        .take(rowsPerPage)
+        .getRawMany()
+
+      return ok(tipos)
+    } catch (err) {
+      return serverError(err)
+    }
   }
 
 
