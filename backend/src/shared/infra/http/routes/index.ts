@@ -17,6 +17,7 @@ import { filtersRoutes } from './security/filters-routes'
 import { tipoRoutes } from './drinks/tipo-routes'
 import { destiladoPrincipalRoutes } from './drinks/destilado-principal-routes'
 import { categoriaRoutes } from './drinks/categoria-routes'
+import { copoTacaRoutes } from './drinks/copo-taca-routes'
 const router = Router()
 
 router.use(authenticateRoutes)
@@ -36,6 +37,7 @@ router.use('/configs', configsRoutes)
 router.use('/filters', filtersRoutes)
 router.use('/tipo', tipoRoutes)
 router.use('/destilado-principal', destiladoPrincipalRoutes)
+router.use('/copo-taca', copoTacaRoutes)
 router.use('/categoria', categoriaRoutes)
 
 export { router }
