@@ -21,6 +21,7 @@ import { copoTacaRoutes } from './drinks/copo-taca-routes'
 import { grupoRoutes } from './drinks/grupo-routes'
 import { drinkRoutes } from './drinks/drink-routes'
 import { dicaRoutes } from './drinks/dica-routes'
+import { linkRoutes } from './drinks/link-routes'
 const router = Router()
 
 router.use(authenticateRoutes)
@@ -45,5 +46,6 @@ router.use('/categoria', categoriaRoutes)
 router.use('/grupo', grupoRoutes)
 router.use('/drink', drinkRoutes)
 router.use('/dica', dicaRoutes)
+router.use('/link', linkRoutes)
 
 export { router }
