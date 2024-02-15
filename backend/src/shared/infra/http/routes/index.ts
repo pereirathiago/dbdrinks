@@ -18,6 +18,7 @@ import { tipoRoutes } from './drinks/tipo-routes'
 import { destiladoPrincipalRoutes } from './drinks/destilado-principal-routes'
 import { categoriaRoutes } from './drinks/categoria-routes'
 import { copoTacaRoutes } from './drinks/copo-taca-routes'
+import { grupoRoutes } from './drinks/grupo-routes'
 const router = Router()
 
 router.use(authenticateRoutes)
@@ -39,5 +40,6 @@ router.use('/tipo', tipoRoutes)
 router.use('/destilado-principal', destiladoPrincipalRoutes)
 router.use('/copo-taca', copoTacaRoutes)
 router.use('/categoria', categoriaRoutes)
+router.use('/grupo', grupoRoutes)
 
 export { router }
