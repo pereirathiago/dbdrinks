@@ -34,6 +34,8 @@ import { ITipoRepository } from '@modules/drinks/repositories/i-tipo-repository'
 import { TipoRepository } from '@modules/drinks/infra/repositories/tipo-repository'
 import { IDestiladoPrincipalRepository } from '@modules/drinks/repositories/i-destilado-principal-repository'
 import { DestiladoPrincipalRepository } from '@modules/drinks/infra/repositories/destilado-principal-repository'
+import { ICategoriaRepository } from '@modules/drinks/repositories/i-categoria-repository'
+import { CategoriaRepository } from '@modules/drinks/infra/repositories/categoria-repository'
 
 container.registerSingleton<IUserRepository>('UserRepository', UserRepository)
 container.registerSingleton<IUserSecurityRepository>('UserSecurityRepository', UserSecurityRepository)
@@ -51,3 +53,4 @@ container.registerSingleton<IConfigRepository>('ConfigRepository', ConfigReposit
 container.registerSingleton<IFilterRepository>('FilterRepository', FilterRepository)
 container.registerSingleton<ITipoRepository>('TipoRepository', TipoRepository)
 container.registerSingleton<IDestiladoPrincipalRepository>('DestiladoPrincipalRepository', DestiladoPrincipalRepository)
+container.registerSingleton<ICategoriaRepository>('CategoriaRepository', CategoriaRepository)

@@ -16,6 +16,7 @@ import { configsRoutes } from './security/configs-routes'
 import { filtersRoutes } from './security/filters-routes'
 import { tipoRoutes } from './drinks/tipo-routes'
 import { destiladoPrincipalRoutes } from './drinks/destilado-principal-routes'
+import { categoriaRoutes } from './drinks/categoria-routes'
 const router = Router()
 
 router.use(authenticateRoutes)
@@ -35,5 +36,6 @@ router.use('/configs', configsRoutes)
 router.use('/filters', filtersRoutes)
 router.use('/tipo', tipoRoutes)
 router.use('/destilado-principal', destiladoPrincipalRoutes)
+router.use('/categoria', categoriaRoutes)
 
 export { router }
