@@ -40,6 +40,8 @@ import { ICopoTacaRepository } from '@modules/drinks/repositories/i-copo-taca-re
 import { CopoTacaRepository } from '@modules/drinks/infra/repositories/copo-taca-repository'
 import { IGrupoRepository } from '@modules/drinks/repositories/i-grupo-repository'
 import { GrupoRepository } from '@modules/drinks/infra/repositories/grupo-repository'
+import { IDrinkRepository } from '@modules/drinks/repositories/i-drink-repository'
+import { DrinkRepository } from '@modules/drinks/infra/repositories/drink-repository'
 
 container.registerSingleton<IUserRepository>('UserRepository', UserRepository)
 container.registerSingleton<IUserSecurityRepository>('UserSecurityRepository', UserSecurityRepository)
@@ -60,3 +62,4 @@ container.registerSingleton<IDestiladoPrincipalRepository>('DestiladoPrincipalRe
 container.registerSingleton<ICopoTacaRepository>('CopoTacaRepository', CopoTacaRepository)
 container.registerSingleton<ICategoriaRepository>('CategoriaRepository', CategoriaRepository)
 container.registerSingleton<IGrupoRepository>('GrupoRepository', GrupoRepository)
+container.registerSingleton<IDrinkRepository>('DrinkRepository', DrinkRepository)

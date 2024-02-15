@@ -19,6 +19,7 @@ import { destiladoPrincipalRoutes } from './drinks/destilado-principal-routes'
 import { categoriaRoutes } from './drinks/categoria-routes'
 import { copoTacaRoutes } from './drinks/copo-taca-routes'
 import { grupoRoutes } from './drinks/grupo-routes'
+import { drinkRoutes } from './drinks/drink-routes'
 const router = Router()
 
 router.use(authenticateRoutes)
@@ -41,5 +42,6 @@ router.use('/destilado-principal', destiladoPrincipalRoutes)
 router.use('/copo-taca', copoTacaRoutes)
 router.use('/categoria', categoriaRoutes)
 router.use('/grupo', grupoRoutes)
+router.use('/drink', drinkRoutes)
 
 export { router }
