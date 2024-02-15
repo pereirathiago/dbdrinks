@@ -82,11 +82,21 @@ class DrinkRepository implements IDrinkRepository {
           'dri.nome as "nome"',
           'dri.descricao as "descricao"',
           'dri.tipoId as "tipoId"',
+          'tip.nome as "tipoNome"',
           'dri.categoriaId as "categoriaId"',
+          'cat.nome as "categoriaNome"',
           'dri.copoTacaId as "copoTacaId"',
+          'cop.nome as "copoTacaNome"',
           'dri.destiladoPrincipalId as "destiladoPrincipalId"',
+          'des.nome as "destiladoPrincipalNome"',
           'dri.grupoId as "grupoId"',
+          'gru.nome as "grupoNome"',
         ])
+        .leftJoin('tipos', 'tip', 'tip.id = dri.tipoId')
+        .leftJoin('categorias', 'cat', 'cat.id = dri.categoriaId')
+        .leftJoin('copos_tacas', 'cop', 'cop.id = dri.copoTacaId')
+        .leftJoin('destilados_principais', 'des', 'des.id = dri.destiladoPrincipalId')
+        .leftJoin('grupos', 'gru', 'gru.id = dri.grupoId')
 
       if (filter) {
         query = query
@@ -185,11 +195,21 @@ class DrinkRepository implements IDrinkRepository {
           'dri.nome as "nome"',
           'dri.descricao as "descricao"',
           'dri.tipoId as "tipoId"',
+          'tip.nome as "tipoNome"',
           'dri.categoriaId as "categoriaId"',
+          'cat.nome as "categoriaNome"',
           'dri.copoTacaId as "copoTacaId"',
+          'cop.nome as "copoTacaNome"',
           'dri.destiladoPrincipalId as "destiladoPrincipalId"',
+          'des.nome as "destiladoPrincipalNome"',
           'dri.grupoId as "grupoId"',
+          'gru.nome as "grupoNome"',
         ])
+        .leftJoin('tipos', 'tip', 'tip.id = dri.tipoId')
+        .leftJoin('categorias', 'cat', 'cat.id = dri.categoriaId')
+        .leftJoin('copos_tacas', 'cop', 'cop.id = dri.copoTacaId')
+        .leftJoin('destilados_principais', 'des', 'des.id = dri.destiladoPrincipalId')
+        .leftJoin('grupos', 'gru', 'gru.id = dri.grupoId')
         .where('dri.id = :id', { id })
         .getRawOne()
 
