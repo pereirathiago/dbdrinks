@@ -46,6 +46,8 @@ import { IDicaRepository } from '@modules/drinks/repositories/i-dica-repository'
 import { DicaRepository } from '@modules/drinks/infra/repositories/dica-repository'
 import { ILinkRepository } from '@modules/drinks/repositories/i-link-repository'
 import { LinkRepository } from '@modules/drinks/infra/repositories/link-repository'
+import { ModoPreparoRepository } from '@modules/drinks/infra/repositories/modo-preparo-repository'
+import { IModoPreparoRepository } from '@modules/drinks/repositories/i-modo-preparo-repository'
 
 container.registerSingleton<IUserRepository>('UserRepository', UserRepository)
 container.registerSingleton<IUserSecurityRepository>('UserSecurityRepository', UserSecurityRepository)
@@ -69,3 +71,4 @@ container.registerSingleton<IGrupoRepository>('GrupoRepository', GrupoRepository
 container.registerSingleton<IDrinkRepository>('DrinkRepository', DrinkRepository)
 container.registerSingleton<IDicaRepository>('DicaRepository', DicaRepository)
 container.registerSingleton<ILinkRepository>('LinkRepository', LinkRepository)
+container.registerSingleton<IModoPreparoRepository>('ModoPreparoRepository', ModoPreparoRepository)
